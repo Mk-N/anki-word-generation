@@ -45,9 +45,18 @@ def generate_hint(definition):
 	word_tokens = word_tokenize(definition.lower())
 	filtered_tokens = [w for w in word_tokens if not w in stop_words and w.isalpha()]
 	freq_dist = FreqDist(filtered_tokens)
-	most_common = freq_dist.most_common(3)
-	hints = [word for word, freq in most_common]
-	return "(" + ", ".join(hints) + ")"
+	most_common = freq_dist.most_common()
+
+	# Ensure fewer hint words than words in the definition
+	hint_words = []
+	num_words_in_definition = len(filtered_tokens)
+	for word, freq in most_common:
+		if len(hint_words) < num_words_in_definition - 1:
+			hint_words.append(word)
+		else:
+			break
+
+	return "(" + ", ".join(hint_words) + ")"
 
 def save_to_file(content, csv_content):
 	output_dir = 'output'
