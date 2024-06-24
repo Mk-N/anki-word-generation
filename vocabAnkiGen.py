@@ -47,11 +47,11 @@ def generate_hint(definition):
 	freq_dist = FreqDist(filtered_tokens)
 	most_common = freq_dist.most_common()
 
-	# Ensure fewer hint words than words in the definition
+	# Ensure fewer hint words than words in the definition and cap at 3
 	hint_words = []
 	num_words_in_definition = len(filtered_tokens)
 	for word, freq in most_common:
-		if len(hint_words) < num_words_in_definition - 1:
+		if len(hint_words) < min(num_words_in_definition - 1, 3):
 			hint_words.append(word)
 		else:
 			break
