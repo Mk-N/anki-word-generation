@@ -1,0 +1,78 @@
+
+Word: overdraws
+
+Type: Noun
+Definition: The process by which, during the rendering of a three-dimensional scene, a pixel is replaced by one that is closer to the viewpoint, as determined by their Z coordinates.
+
+Type: Verb
+Definition: To withdraw more money from an account than there is credit; to make an overdraft
+Definition: To use a device for shooting arrows shorter than the draw of the bow.
+Definition: To exaggerate.
+Definition: To draw over the top of existing content.
+
+Word: saturnine
+
+Type: Adjective
+Definition: Of a person: having a tendency to be cold, bitter, gloomy, sarcastic, and slow to change and react.
+Definition: Of a setting: depressing, dull, gloomy.
+Definition: Of, pertaining to, or containing lead (which was symbolically associated with the planet Saturn by alchemists).
+Definition: Of a disease: caused by lead poisoning (saturnism); of a person: affected by lead poisoning.
+Definition: Pertaining to the astrological influence of the planet Saturn; having the characteristics of a person under such influence (see sense 1).
+
+Word: machinable
+
+Type: Adjective
+Definition: Able to be made or modified by machine.
+
+Word: rejoice
+
+Type: Verb
+Definition: To be very happy, be delighted, exult; to feel joy.
+Definition: To have (someone) as a lover or spouse; to enjoy sexually.
+Definition: To make happy, exhilarate.
+Definition: To enjoy.
+
+Word: reconning
+
+Type: Verb
+Definition: Reconnoiter.
+
+Word: ballasted
+
+Type: Verb
+Definition: To stabilize or load a ship with ballast.
+Definition: To lay ballast on the bed of a railroad track.
+
+Word: dharma
+
+Type: Noun
+Definition: The natural order of the universe; natural law, cosmic order.
+Definition: One's obligation in respect to one's position in society, one's duty.
+Definition: The teachings of the Buddha as one's personal path to enlightenment.
+Definition: The teachings of the Buddha as a practice to be promulgated and taught.
+
+Word: greasers
+
+Type: Noun
+Definition: Someone or something that greases (applies grease).
+Definition: A mechanic.
+Definition: A biker, a tough.
+Definition: A rocker or metalhead, especially one who listens to 1950s rock and roll or 1980s thrash metal.
+Definition: A Latin American, especially a Mexican.
+Definition: An Italian.
+Definition: A Greek.
+
+Word: antiparallel
+
+Type: Noun
+Definition: A line that forms equal angles with two other lines, but in opposite directions.
+
+Type: Adjective
+Definition: Of vectors, parallel but of opposite direction
+Definition: Describing the orientations of the two strands of DNA
+Definition: Describing two beta strands comprising a protein's secondary structure that are aligned and hydrogen bonded but the vector describing the amino- and carboxy-terminal ends of each strand are oriented 180° relative to one another.
+
+Word: sulked
+
+Type: Verb
+Definition: To express ill humor or offence by remaining sullenly silent or withdrawn.
