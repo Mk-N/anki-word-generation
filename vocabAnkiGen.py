@@ -7,6 +7,7 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.probability import FreqDist
+from threading import Lock
 
 # Download NLTK data files (you need to do this once)
 nltk.download('punkt')
@@ -15,20 +16,21 @@ nltk.download('stopwords')
 # Rate limit settings
 REQUESTS_PER_MINUTE = 60
 DELAY_BETWEEN_REQUESTS = 60 / REQUESTS_PER_MINUTE
+rate_limit_lock = Lock()
+last_request_time = 0
 
-def get_random_words(length):
-	url = "https://random-word-api.herokuapp.com/word"
-	response = requests.get(f"{url}?number={length}")
-	if response.status_code == 200:
-		return response.json()
-	else:
-		return []
+def rate_limited_request(url):
+	global last_request_time
 
-def get_word_definition(word):
-	url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
 	while True:
 		try:
-			response = requests.get(url)
+			with rate_limit_lock:
+				current_time = time.time()
+				if current_time - last_request_time < DELAY_BETWEEN_REQUESTS:
+					time.sleep(DELAY_BETWEEN_REQUESTS - (current_time - last_request_time))
+				last_request_time = time.time()
+				response = requests.get(url)
+
 			if response.status_code == 200:
 				return response.json()
 			elif response.status_code == 429:
@@ -39,6 +41,14 @@ def get_word_definition(word):
 		except requests.exceptions.RequestException as e:
 			print(f"Request failed: {e}, retrying...")
 			time.sleep(DELAY_BETWEEN_REQUESTS)
+
+def get_random_words(length):
+	url = f"https://random-word-api.herokuapp.com/word?number={length}"
+	return rate_limited_request(url)
+
+def get_word_definition(word):
+	url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
+	return rate_limited_request(url)
 
 def generate_hint(definition):
 	stop_words = set(stopwords.words('english'))
@@ -105,9 +115,6 @@ def main():
 							csv_content.append([word, part_of_speech.capitalize(), definition_text, hint])
 				else:
 					print(f"No definition found for word: {word}")
-
-				# Rate limiting
-				time.sleep(DELAY_BETWEEN_REQUESTS)
 
 		remaining_words = num_words - len(collected_words)
 
